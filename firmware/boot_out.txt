@@ -1,0 +1,6 @@
+Adafruit CircuitPython 10.0.1 on 2025-10-09; Raspberry Pi Pico with rp2040
+Board ID:raspberry_pi_pico
+UID:E66118604B510625
+boot.py saída:
+Boot inicial: Linux
+>> Modo de edição habilitado via USB.
