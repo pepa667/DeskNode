@@ -1,7 +1,9 @@
 # DeskNode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/Opus667/DeskNode)](https://github.com/<Opus667/DeskNode/issues)
+[![Issues](https://img.shields.io/github/issues/Opus667/DeskNode)](https://github.com/Opus667/DeskNode/issues)
+
+[![DeskNode](/Logo/DeskNode---Logo---Fundo-Escuro.gif)]
 
 DeskNode is an open-source, modular control panel for PCs, designed for makers and hobbyists. It provides physical control over boot selection, volume/mute, power/reset, and expands USB connectivity.
 

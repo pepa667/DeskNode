@@ -12,8 +12,8 @@ import digitalio
 storage.remount("/", readonly=True)
 storage.disable_usb_drive()
 
-sw_a = digitalio.DigitalInOut(board.GP3)
-sw_b = digitalio.DigitalInOut(board.GP4)
+sw_a = digitalio.DigitalInOut(board.GP18)
+sw_b = digitalio.DigitalInOut(board.GP19)
 for p in (sw_a, sw_b):
     p.direction = digitalio.Direction.INPUT
     p.pull = digitalio.Pull.UP

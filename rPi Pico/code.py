@@ -12,12 +12,12 @@ from adafruit_hid.consumer_control_code import ConsumerControlCode
 cc = ConsumerControl(usb_hid.devices)
 
 # --- Configuração dos botões físicos ---
-botao = digitalio.DigitalInOut(board.GP2)
-botao.direction = digitalio.Direction.INPUT
-botao.pull = digitalio.Pull.UP
+# botao = digitalio.DigitalInOut(board.GP2)
+# botao.direction = digitalio.Direction.INPUT
+# botao.pull = digitalio.Pull.UP
 
-sw_a = digitalio.DigitalInOut(board.GP3)
-sw_b = digitalio.DigitalInOut(board.GP4)
+sw_a = digitalio.DigitalInOut(board.GP18)
+sw_b = digitalio.DigitalInOut(board.GP19)
 for p in (sw_a, sw_b):
     p.direction = digitalio.Direction.INPUT
     p.pull = digitalio.Pull.UP
@@ -43,17 +43,17 @@ def update_bootchoice():
         return "undefined"
 
 # --- Inicializa APDS9960 no lado esquerdo ---
-i2c_left = busio.I2C(board.GP7, board.GP6)  # SCL, SDA
-apds_left = APDS9960(i2c_left)
+i2c = busio.I2C(board.GP27, board.GP26)  # SCL, SDA
+apds = APDS9960(i2c)
 
-apds_left.enable_proximity = True
-apds_left.enable_gesture = True
+apds.enable_proximity = True
+apds.enable_gesture = True
 
 # Sensibilidade
-apds_left.gesture_prox_enter_thresh = 40
-apds_left.gesture_prox_exit_thresh = 30
-apds_left.gesture_gain = 2
-apds_left.gesture_led_drive = 2
+apds.gesture_prox_enter_thresh = 40
+apds.gesture_prox_exit_thresh = 30
+apds.gesture_gain = 2
+apds.gesture_led_drive = 2
 
 print("Sensor de gestos pronto! (lado esquerdo)")
 
@@ -79,7 +79,7 @@ while True:
         microcontroller.reset()
 
     # --- Controle de volume por gesto ---
-    gesture = apds_left.gesture()
+    gesture = apds.gesture()
     if gesture is not None:
         handle_volume_gesture(gesture)
         time.sleep(0.4)
